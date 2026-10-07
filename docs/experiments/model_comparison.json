@@ -1,0 +1,842 @@
+{
+  "dataset": {
+    "created_at": "2026-10-07T02:57:21.884680+00:00",
+    "images": {
+      "train": 38704,
+      "val": 8296,
+      "test": 8248
+    },
+    "processed_covers": true,
+    "carrier_variants": {
+      "native512": 800,
+      "processed:blur": 1129,
+      "processed:noise": 1177,
+      "processed:jpeg_noise": 1111,
+      "processed:resample": 1134,
+      "processed:jpeg": 1155,
+      "downscaled": 2465,
+      "native_jpeg_grid": 2441
+    }
+  },
+  "models": [
+    {
+      "model": "steganalysis-cnn",
+      "version": "1.0.0",
+      "trained_on": {
+        "train": 22712,
+        "val": 4868,
+        "test": 4844
+      },
+      "accuracy": 0.9472599418040737,
+      "f1_macro": 0.9466825068243268,
+      "roc_auc": 0.9888077090786962,
+      "detection_rate": 0.9946653734238603,
+      "false_positive_rate": 0.18671193016488846,
+      "subsets": {
+        "clean covers": {
+          "accuracy": 0.9938067712634187,
+          "detection_rate": 0.993944398568676,
+          "false_positive_rate": 0.006606110652353427,
+          "images": 4844
+        },
+        "processed covers": {
+          "accuracy": 0.8810223266745005,
+          "detection_rate": 0.9956913435174305,
+          "false_positive_rate": 0.44300822561692127,
+          "images": 3404
+        }
+      },
+      "by_utilisation": [
+        {
+          "technique": "lsb",
+          "bin": "0-25%",
+          "samples": 345,
+          "detection_rate": 0.936231884057971,
+          "technique_accuracy": 0.927536231884058
+        },
+        {
+          "technique": "lsb",
+          "bin": "25-50%",
+          "samples": 589,
+          "detection_rate": 0.9966044142614601,
+          "technique_accuracy": 0.9966044142614601
+        },
+        {
+          "technique": "lsb",
+          "bin": "50-75%",
+          "samples": 546,
+          "detection_rate": 0.9945054945054945,
+          "technique_accuracy": 0.9871794871794872
+        },
+        {
+          "technique": "lsb",
+          "bin": "75-100%",
+          "samples": 582,
+          "detection_rate": 0.9982817869415808,
+          "technique_accuracy": 0.9914089347079038
+        },
+        {
+          "technique": "dct",
+          "bin": "0-25%",
+          "samples": 64,
+          "detection_rate": 0.921875,
+          "technique_accuracy": 0.921875
+        },
+        {
+          "technique": "dct",
+          "bin": "25-50%",
+          "samples": 846,
+          "detection_rate": 1.0,
+          "technique_accuracy": 0.9929078014184397
+        },
+        {
+          "technique": "dct",
+          "bin": "50-75%",
+          "samples": 614,
+          "detection_rate": 1.0,
+          "technique_accuracy": 1.0
+        },
+        {
+          "technique": "dct",
+          "bin": "75-100%",
+          "samples": 538,
+          "detection_rate": 1.0,
+          "technique_accuracy": 1.0
+        },
+        {
+          "technique": "dwt",
+          "bin": "0-25%",
+          "samples": 84,
+          "detection_rate": 1.0,
+          "technique_accuracy": 1.0
+        },
+        {
+          "technique": "dwt",
+          "bin": "25-50%",
+          "samples": 164,
+          "detection_rate": 1.0,
+          "technique_accuracy": 1.0
+        },
+        {
+          "technique": "dwt",
+          "bin": "50-75%",
+          "samples": 1226,
+          "detection_rate": 1.0,
+          "technique_accuracy": 1.0
+        },
+        {
+          "technique": "dwt",
+          "bin": "75-100%",
+          "samples": 588,
+          "detection_rate": 1.0,
+          "technique_accuracy": 1.0
+        }
+      ],
+      "benign_processing_fp": [
+        {
+          "transform": "none",
+          "false_positive_rate": 0.016666666666666666,
+          "flagged_as": {
+            "lsb": 5,
+            "dct": 0,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "jpeg quality=90",
+          "false_positive_rate": 0.0,
+          "flagged_as": {
+            "lsb": 0,
+            "dct": 0,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "jpeg quality=75",
+          "false_positive_rate": 0.0,
+          "flagged_as": {
+            "lsb": 0,
+            "dct": 0,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "jpeg quality=50",
+          "false_positive_rate": 0.9033333333333333,
+          "flagged_as": {
+            "lsb": 0,
+            "dct": 271,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "gaussian_noise sigma=1",
+          "false_positive_rate": 0.9933333333333333,
+          "flagged_as": {
+            "lsb": 298,
+            "dct": 0,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "gaussian_noise sigma=2",
+          "false_positive_rate": 0.9933333333333333,
+          "flagged_as": {
+            "lsb": 298,
+            "dct": 0,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "gaussian_noise sigma=3",
+          "false_positive_rate": 0.94,
+          "flagged_as": {
+            "lsb": 282,
+            "dct": 0,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "blur kernel=3",
+          "false_positive_rate": 0.02666666666666667,
+          "flagged_as": {
+            "lsb": 8,
+            "dct": 0,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "resize scale=0.75",
+          "false_positive_rate": 0.0,
+          "flagged_as": {
+            "lsb": 0,
+            "dct": 0,
+            "dwt": 0
+          }
+        }
+      ]
+    },
+    {
+      "model": "steganalysis-cnn",
+      "version": "1.1.0",
+      "trained_on": {
+        "train": 38704,
+        "val": 8296,
+        "test": 8248
+      },
+      "accuracy": 0.9455625606207565,
+      "f1_macro": 0.9454916628972675,
+      "roc_auc": 0.9857256051727203,
+      "detection_rate": 0.9818946007112835,
+      "false_positive_rate": 0.15518913676042678,
+      "subsets": {
+        "clean covers": {
+          "accuracy": 0.985962014863749,
+          "detection_rate": 0.9936691439581613,
+          "false_positive_rate": 0.03550784475639967,
+          "images": 4844
+        },
+        "processed covers": {
+          "accuracy": 0.8880728554641598,
+          "detection_rate": 0.9651390520955738,
+          "false_positive_rate": 0.3254994124559342,
+          "images": 3404
+        }
+      },
+      "by_utilisation": [
+        {
+          "technique": "lsb",
+          "bin": "0-25%",
+          "samples": 345,
+          "detection_rate": 0.936231884057971,
+          "technique_accuracy": 0.936231884057971
+        },
+        {
+          "technique": "lsb",
+          "bin": "25-50%",
+          "samples": 589,
+          "detection_rate": 0.9609507640067911,
+          "technique_accuracy": 0.9609507640067911
+        },
+        {
+          "technique": "lsb",
+          "bin": "50-75%",
+          "samples": 546,
+          "detection_rate": 0.9542124542124543,
+          "technique_accuracy": 0.9523809523809523
+        },
+        {
+          "technique": "lsb",
+          "bin": "75-100%",
+          "samples": 582,
+          "detection_rate": 0.9467353951890034,
+          "technique_accuracy": 0.9450171821305842
+        },
+        {
+          "technique": "dct",
+          "bin": "0-25%",
+          "samples": 64,
+          "detection_rate": 0.890625,
+          "technique_accuracy": 0.890625
+        },
+        {
+          "technique": "dct",
+          "bin": "25-50%",
+          "samples": 846,
+          "detection_rate": 0.9964539007092199,
+          "technique_accuracy": 0.9846335697399528
+        },
+        {
+          "technique": "dct",
+          "bin": "50-75%",
+          "samples": 614,
+          "detection_rate": 1.0,
+          "technique_accuracy": 0.998371335504886
+        },
+        {
+          "technique": "dct",
+          "bin": "75-100%",
+          "samples": 538,
+          "detection_rate": 1.0,
+          "technique_accuracy": 0.9981412639405205
+        },
+        {
+          "technique": "dwt",
+          "bin": "0-25%",
+          "samples": 84,
+          "detection_rate": 0.9880952380952381,
+          "technique_accuracy": 0.9761904761904762
+        },
+        {
+          "technique": "dwt",
+          "bin": "25-50%",
+          "samples": 164,
+          "detection_rate": 1.0,
+          "technique_accuracy": 1.0
+        },
+        {
+          "technique": "dwt",
+          "bin": "50-75%",
+          "samples": 1226,
+          "detection_rate": 1.0,
+          "technique_accuracy": 0.9991843393148451
+        },
+        {
+          "technique": "dwt",
+          "bin": "75-100%",
+          "samples": 588,
+          "detection_rate": 1.0,
+          "technique_accuracy": 0.9982993197278912
+        }
+      ],
+      "benign_processing_fp": [
+        {
+          "transform": "none",
+          "false_positive_rate": 0.04,
+          "flagged_as": {
+            "lsb": 11,
+            "dct": 1,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "jpeg quality=90",
+          "false_positive_rate": 0.01,
+          "flagged_as": {
+            "lsb": 3,
+            "dct": 0,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "jpeg quality=75",
+          "false_positive_rate": 0.006666666666666667,
+          "flagged_as": {
+            "lsb": 2,
+            "dct": 0,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "jpeg quality=50",
+          "false_positive_rate": 0.03333333333333333,
+          "flagged_as": {
+            "lsb": 1,
+            "dct": 9,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "gaussian_noise sigma=1",
+          "false_positive_rate": 0.9366666666666666,
+          "flagged_as": {
+            "lsb": 281,
+            "dct": 0,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "gaussian_noise sigma=2",
+          "false_positive_rate": 0.6866666666666666,
+          "flagged_as": {
+            "lsb": 206,
+            "dct": 0,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "gaussian_noise sigma=3",
+          "false_positive_rate": 0.92,
+          "flagged_as": {
+            "lsb": 276,
+            "dct": 0,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "blur kernel=3",
+          "false_positive_rate": 0.06333333333333334,
+          "flagged_as": {
+            "lsb": 19,
+            "dct": 0,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "resize scale=0.75",
+          "false_positive_rate": 0.006666666666666667,
+          "flagged_as": {
+            "lsb": 2,
+            "dct": 0,
+            "dwt": 0
+          }
+        }
+      ]
+    },
+    {
+      "model": "steganalysis-cnn",
+      "version": "1.2.0",
+      "trained_on": {
+        "train": 38704,
+        "val": 8296,
+        "test": 8248
+      },
+      "accuracy": 0.9939379243452958,
+      "f1_macro": 0.9939425039646547,
+      "roc_auc": 0.9995937056956934,
+      "detection_rate": 0.9957969608794051,
+      "false_positive_rate": 0.011154219204655674,
+      "subsets": {
+        "clean covers": {
+          "accuracy": 0.9931874483897605,
+          "detection_rate": 0.9942196531791907,
+          "false_positive_rate": 0.00990916597853014,
+          "images": 4844
+        },
+        "processed covers": {
+          "accuracy": 0.995005875440658,
+          "detection_rate": 0.9980415197806503,
+          "false_positive_rate": 0.012925969447708578,
+          "images": 3404
+        }
+      },
+      "by_utilisation": [
+        {
+          "technique": "lsb",
+          "bin": "0-25%",
+          "samples": 345,
+          "detection_rate": 0.9652173913043478,
+          "technique_accuracy": 0.9652173913043478
+        },
+        {
+          "technique": "lsb",
+          "bin": "25-50%",
+          "samples": 589,
+          "detection_rate": 0.9932088285229203,
+          "technique_accuracy": 0.9932088285229203
+        },
+        {
+          "technique": "lsb",
+          "bin": "50-75%",
+          "samples": 546,
+          "detection_rate": 0.9945054945054945,
+          "technique_accuracy": 0.9945054945054945
+        },
+        {
+          "technique": "lsb",
+          "bin": "75-100%",
+          "samples": 582,
+          "detection_rate": 1.0,
+          "technique_accuracy": 1.0
+        },
+        {
+          "technique": "dct",
+          "bin": "0-25%",
+          "samples": 64,
+          "detection_rate": 0.90625,
+          "technique_accuracy": 0.90625
+        },
+        {
+          "technique": "dct",
+          "bin": "25-50%",
+          "samples": 846,
+          "detection_rate": 1.0,
+          "technique_accuracy": 0.9988179669030733
+        },
+        {
+          "technique": "dct",
+          "bin": "50-75%",
+          "samples": 614,
+          "detection_rate": 1.0,
+          "technique_accuracy": 1.0
+        },
+        {
+          "technique": "dct",
+          "bin": "75-100%",
+          "samples": 538,
+          "detection_rate": 1.0,
+          "technique_accuracy": 1.0
+        },
+        {
+          "technique": "dwt",
+          "bin": "0-25%",
+          "samples": 84,
+          "detection_rate": 0.9880952380952381,
+          "technique_accuracy": 0.9880952380952381
+        },
+        {
+          "technique": "dwt",
+          "bin": "25-50%",
+          "samples": 164,
+          "detection_rate": 1.0,
+          "technique_accuracy": 1.0
+        },
+        {
+          "technique": "dwt",
+          "bin": "50-75%",
+          "samples": 1226,
+          "detection_rate": 1.0,
+          "technique_accuracy": 1.0
+        },
+        {
+          "technique": "dwt",
+          "bin": "75-100%",
+          "samples": 588,
+          "detection_rate": 1.0,
+          "technique_accuracy": 1.0
+        }
+      ],
+      "benign_processing_fp": [
+        {
+          "transform": "none",
+          "false_positive_rate": 0.013333333333333334,
+          "flagged_as": {
+            "lsb": 4,
+            "dct": 0,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "jpeg quality=90",
+          "false_positive_rate": 0.013333333333333334,
+          "flagged_as": {
+            "lsb": 4,
+            "dct": 0,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "jpeg quality=75",
+          "false_positive_rate": 0.006666666666666667,
+          "flagged_as": {
+            "lsb": 2,
+            "dct": 0,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "jpeg quality=50",
+          "false_positive_rate": 0.0033333333333333335,
+          "flagged_as": {
+            "lsb": 1,
+            "dct": 0,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "gaussian_noise sigma=1",
+          "false_positive_rate": 0.023333333333333334,
+          "flagged_as": {
+            "lsb": 7,
+            "dct": 0,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "gaussian_noise sigma=2",
+          "false_positive_rate": 0.04666666666666667,
+          "flagged_as": {
+            "lsb": 14,
+            "dct": 0,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "gaussian_noise sigma=3",
+          "false_positive_rate": 0.04666666666666667,
+          "flagged_as": {
+            "lsb": 14,
+            "dct": 0,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "blur kernel=3",
+          "false_positive_rate": 0.0,
+          "flagged_as": {
+            "lsb": 0,
+            "dct": 0,
+            "dwt": 0
+          }
+        },
+        {
+          "transform": "resize scale=0.75",
+          "false_positive_rate": 0.0,
+          "flagged_as": {
+            "lsb": 0,
+            "dct": 0,
+            "dwt": 0
+          }
+        }
+      ]
+    },
+    {
+      "model": "steganalysis-rf",
+      "version": "1.0.0",
+      "trained_on": {
+        "train": 22712,
+        "val": 4868,
+        "test": 4844
+      },
+      "accuracy": 0.8917313288069835,
+      "f1_macro": 0.8918244348868272,
+      "roc_auc": 0.98346567395229,
+      "detection_rate": 0.9466537342386033,
+      "false_positive_rate": 0.15373423860329777,
+      "subsets": {
+        "clean covers": {
+          "accuracy": 0.9308422791081751,
+          "detection_rate": 0.9265070189925682,
+          "false_positive_rate": 0.04128819157720892,
+          "images": 4844
+        },
+        "processed covers": {
+          "accuracy": 0.836075205640423,
+          "detection_rate": 0.9753231492361927,
+          "false_positive_rate": 0.3137485311398355,
+          "images": 3404
+        }
+      },
+      "by_utilisation": [
+        {
+          "technique": "lsb",
+          "bin": "0-25%",
+          "samples": 345,
+          "detection_rate": 0.8231884057971014,
+          "technique_accuracy": 0.7159420289855073
+        },
+        {
+          "technique": "lsb",
+          "bin": "25-50%",
+          "samples": 589,
+          "detection_rate": 0.99830220713073,
+          "technique_accuracy": 0.9728353140916808
+        },
+        {
+          "technique": "lsb",
+          "bin": "50-75%",
+          "samples": 546,
+          "detection_rate": 1.0,
+          "technique_accuracy": 0.989010989010989
+        },
+        {
+          "technique": "lsb",
+          "bin": "75-100%",
+          "samples": 582,
+          "detection_rate": 1.0,
+          "technique_accuracy": 0.9982817869415808
+        },
+        {
+          "technique": "dct",
+          "bin": "0-25%",
+          "samples": 64,
+          "detection_rate": 0.65625,
+          "technique_accuracy": 0.546875
+        },
+        {
+          "technique": "dct",
+          "bin": "25-50%",
+          "samples": 846,
+          "detection_rate": 0.9267139479905437,
+          "technique_accuracy": 0.8581560283687943
+        },
+        {
+          "technique": "dct",
+          "bin": "50-75%",
+          "samples": 614,
+          "detection_rate": 1.0,
+          "technique_accuracy": 0.9788273615635179
+        },
+        {
+          "technique": "dct",
+          "bin": "75-100%",
+          "samples": 538,
+          "detection_rate": 1.0,
+          "technique_accuracy": 0.9907063197026023
+        },
+        {
+          "technique": "dwt",
+          "bin": "0-25%",
+          "samples": 84,
+          "detection_rate": 0.2857142857142857,
+          "technique_accuracy": 0.2857142857142857
+        },
+        {
+          "technique": "dwt",
+          "bin": "25-50%",
+          "samples": 164,
+          "detection_rate": 0.3597560975609756,
+          "technique_accuracy": 0.3353658536585366
+        },
+        {
+          "technique": "dwt",
+          "bin": "50-75%",
+          "samples": 1226,
+          "detection_rate": 0.9845024469820555,
+          "technique_accuracy": 0.9200652528548124
+        },
+        {
+          "technique": "dwt",
+          "bin": "75-100%",
+          "samples": 588,
+          "detection_rate": 1.0,
+          "technique_accuracy": 0.9642857142857143
+        }
+      ]
+    },
+    {
+      "model": "steganalysis-rf",
+      "version": "1.1.0",
+      "trained_on": {
+        "train": 38704,
+        "val": 8296,
+        "test": 8248
+      },
+      "accuracy": 0.9347720659553831,
+      "f1_macro": 0.9354990803393752,
+      "roc_auc": 0.992015003764641,
+      "detection_rate": 0.941965729065632,
+      "false_positive_rate": 0.056741028128031036,
+      "subsets": {
+        "clean covers": {
+          "accuracy": 0.9298100743187449,
+          "detection_rate": 0.9232039636663915,
+          "false_positive_rate": 0.03303055326176713,
+          "images": 4844
+        },
+        "processed covers": {
+          "accuracy": 0.9418331374853114,
+          "detection_rate": 0.9686643164904034,
+          "false_positive_rate": 0.09048178613396005,
+          "images": 3404
+        }
+      },
+      "by_utilisation": [
+        {
+          "technique": "lsb",
+          "bin": "0-25%",
+          "samples": 345,
+          "detection_rate": 0.7971014492753623,
+          "technique_accuracy": 0.7623188405797101
+        },
+        {
+          "technique": "lsb",
+          "bin": "25-50%",
+          "samples": 589,
+          "detection_rate": 0.9949066213921901,
+          "technique_accuracy": 0.9932088285229203
+        },
+        {
+          "technique": "lsb",
+          "bin": "50-75%",
+          "samples": 546,
+          "detection_rate": 1.0,
+          "technique_accuracy": 1.0
+        },
+        {
+          "technique": "lsb",
+          "bin": "75-100%",
+          "samples": 582,
+          "detection_rate": 1.0,
+          "technique_accuracy": 1.0
+        },
+        {
+          "technique": "dct",
+          "bin": "0-25%",
+          "samples": 64,
+          "detection_rate": 0.578125,
+          "technique_accuracy": 0.46875
+        },
+        {
+          "technique": "dct",
+          "bin": "25-50%",
+          "samples": 846,
+          "detection_rate": 0.9278959810874704,
+          "technique_accuracy": 0.9066193853427896
+        },
+        {
+          "technique": "dct",
+          "bin": "50-75%",
+          "samples": 614,
+          "detection_rate": 1.0,
+          "technique_accuracy": 1.0
+        },
+        {
+          "technique": "dct",
+          "bin": "75-100%",
+          "samples": 538,
+          "detection_rate": 0.9981412639405205,
+          "technique_accuracy": 0.9944237918215614
+        },
+        {
+          "technique": "dwt",
+          "bin": "0-25%",
+          "samples": 84,
+          "detection_rate": 0.25,
+          "technique_accuracy": 0.25
+        },
+        {
+          "technique": "dwt",
+          "bin": "25-50%",
+          "samples": 164,
+          "detection_rate": 0.3231707317073171,
+          "technique_accuracy": 0.2865853658536585
+        },
+        {
+          "technique": "dwt",
+          "bin": "50-75%",
+          "samples": 1226,
+          "detection_rate": 0.9828711256117455,
+          "technique_accuracy": 0.9730831973898858
+        },
+        {
+          "technique": "dwt",
+          "bin": "75-100%",
+          "samples": 588,
+          "detection_rate": 0.9965986394557823,
+          "technique_accuracy": 0.9897959183673469
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "model": "steganalysis-cnn",
+  "version": "1.0.0",
+  "images": 300,
+  "seed": 0,
+  "results": [
+    {
+      "transform": "none",
+      "params": {},
+      "images": 300,
+      "false_positive_rate": 0.016666666666666666,
+      "mean_p_stego": 0.05091581960519155,
+      "predicted": {
+        "normal": 295,
+        "lsb": 5,
+        "dct": 0,
+        "dwt": 0
+      }
+    },
+    {
+      "transform": "jpeg",
+      "params": {
+        "quality": 95
+      },
+      "images": 300,
+      "false_positive_rate": 0.006666666666666667,
+      "mean_p_stego": 0.052894773421188195,
+      "predicted": {
+        "normal": 298,
+        "lsb": 2,
+        "dct": 0,
+        "dwt": 0
+      }
+    },
+    {
+      "transform": "jpeg",
+      "params": {
+        "quality": 90
+      },
+      "images": 300,
+      "false_positive_rate": 0.0,
+      "mean_p_stego": 0.03896931489308675,
+      "predicted": {
+        "normal": 300,
+        "lsb": 0,
+        "dct": 0,
+        "dwt": 0
+      }
+    },
+    {
+      "transform": "jpeg",
+      "params": {
+        "quality": 75
+      },
+      "images": 300,
+      "false_positive_rate": 0.0,
+      "mean_p_stego": 0.03593091607093811,
+      "predicted": {
+        "normal": 300,
+        "lsb": 0,
+        "dct": 0,
+        "dwt": 0
+      }
+    },
+    {
+      "transform": "jpeg",
+      "params": {
+        "quality": 50
+      },
+      "images": 300,
+      "false_positive_rate": 0.9033333333333333,
+      "mean_p_stego": 0.8930843916721642,
+      "predicted": {
+        "normal": 29,
+        "lsb": 0,
+        "dct": 271,
+        "dwt": 0
+      }
+    },
+    {
+      "transform": "resize",
+      "params": {
+        "scale": 0.75,
+        "restore": 1
+      },
+      "images": 300,
+      "false_positive_rate": 0.0,
+      "mean_p_stego": 0.03539578775564829,
+      "predicted": {
+        "normal": 300,
+        "lsb": 0,
+        "dct": 0,
+        "dwt": 0
+      }
+    },
+    {
+      "transform": "blur",
+      "params": {
+        "kernel": 3
+      },
+      "images": 300,
+      "false_positive_rate": 0.02666666666666667,
+      "mean_p_stego": 0.0735380680548648,
+      "predicted": {
+        "normal": 292,
+        "lsb": 8,
+        "dct": 0,
+        "dwt": 0
+      }
+    },
+    {
+      "transform": "gaussian_noise",
+      "params": {
+        "sigma": 2
+      },
+      "images": 300,
+      "false_positive_rate": 0.9933333333333333,
+      "mean_p_stego": 0.8207096440779666,
+      "predicted": {
+        "normal": 2,
+        "lsb": 298,
+        "dct": 0,
+        "dwt": 0
+      }
+    }
+  ]
+}
