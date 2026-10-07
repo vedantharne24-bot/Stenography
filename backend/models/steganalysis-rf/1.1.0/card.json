@@ -1,0 +1,63 @@
+{
+  "model_name": "steganalysis-rf",
+  "display_name": "Random Forest on handcrafted steganalysis features",
+  "version": "1.1.0",
+  "kind": "random_forest",
+  "framework": "scikit-learn",
+  "classes": [
+    "normal",
+    "lsb",
+    "dct",
+    "dwt"
+  ],
+  "input": {
+    "tile": 256,
+    "features": 99
+  },
+  "hyperparameters": {
+    "n_estimators": 400,
+    "max_features": "sqrt",
+    "min_samples_leaf": 1
+  },
+  "weights_file": "model.joblib",
+  "weights_sha256": "9cf18a29ed09046b042f2769eb9ef154ae9b4ef2cad707e5a2f312337f4330ae",
+  "trained_at": "2026-10-07T03:01:28.999244+00:00",
+  "training": {
+    "duration_s": 236.8
+  },
+  "dataset": {
+    "path": "data/dataset",
+    "sources": {
+      "train": 3998,
+      "val": 857,
+      "test": 851
+    },
+    "images": {
+      "train": 38704,
+      "val": 8296,
+      "test": 8248
+    },
+    "leakage_check": {
+      "source_overlap": {
+        "train&val": 0,
+        "train&test": 0,
+        "val&test": 0
+      },
+      "passed": true
+    }
+  },
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "sklearn": "1.9.1"
+  },
+  "artifacts": [
+    "metrics.json",
+    "val_metrics.json",
+    "confusion_matrix.png",
+    "roc_curve.png"
+  ]
+}

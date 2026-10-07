@@ -1,0 +1,82 @@
+{
+  "model_name": "steganalysis-cnn",
+  "display_name": "StegoNet (multi-domain CNN)",
+  "version": "1.0.0",
+  "kind": "cnn",
+  "framework": "pytorch",
+  "classes": [
+    "normal",
+    "lsb",
+    "dct",
+    "dwt"
+  ],
+  "input": {
+    "tile": 256,
+    "channels": "RGB uint8",
+    "grid_alignment": 8
+  },
+  "architecture": {
+    "srm_threshold": 3.0,
+    "dct_projection": 16,
+    "hist_bins": 25,
+    "dct_hist_range": 48.0,
+    "dwt_hist_range": 96.0,
+    "width": 32,
+    "dropout": 0.3,
+    "num_classes": 4
+  },
+  "parameters": 646848,
+  "weights_file": "model.pt",
+  "weights_sha256": "e8b7e91575c273cac522fa43d1478b6676c0e3125d35d41bbf463fa202e4d1a0",
+  "trained_at": "2026-10-07T02:46:24.594495+00:00",
+  "training": {
+    "epochs_run": 40,
+    "best_epoch": 33,
+    "batch_size": 32,
+    "optimizer": "AdamW lr=0.002 wd=0.0001",
+    "schedule": "1-epoch linear warm-up, cosine decay",
+    "label_smoothing": 0.05,
+    "augmentation": "D4 dihedral group (8 flips/rotations), applied identically to each cover/stego group",
+    "early_stopping": "val macro-F1, patience 8",
+    "duration_s": 2889.4,
+    "device": "cuda"
+  },
+  "dataset": {
+    "path": "data/dataset",
+    "sources": {
+      "train": 3998,
+      "val": 857,
+      "test": 851
+    },
+    "images": {
+      "train": 22712,
+      "val": 4868,
+      "test": 4844
+    },
+    "leakage_check": {
+      "source_overlap": {
+        "train&val": 0,
+        "train&test": 0,
+        "val&test": 0
+      },
+      "passed": true
+    },
+    "created_at": "2026-10-07T01:49:24.818172+00:00"
+  },
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "sklearn": "1.9.1"
+  },
+  "artifacts": [
+    "metrics.json",
+    "val_metrics.json",
+    "history.json",
+    "confusion_matrix.png",
+    "roc_curve.png",
+    "training_curves.png"
+  ]
+}

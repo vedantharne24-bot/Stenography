@@ -1,0 +1,84 @@
+{
+  "model_name": "steganalysis-cnn",
+  "display_name": "StegoNet (multi-domain CNN)",
+  "version": "1.2.0",
+  "kind": "cnn",
+  "framework": "pytorch",
+  "classes": [
+    "normal",
+    "lsb",
+    "dct",
+    "dwt"
+  ],
+  "input": {
+    "tile": 256,
+    "channels": "RGB uint8",
+    "grid_alignment": 8
+  },
+  "architecture": {
+    "srm_threshold": 3.0,
+    "ws_branch": true,
+    "ws_threshold": 8.0,
+    "dct_projection": 16,
+    "hist_bins": 25,
+    "dct_hist_range": 48.0,
+    "dwt_hist_range": 96.0,
+    "width": 32,
+    "dropout": 0.3,
+    "num_classes": 4
+  },
+  "parameters": 647712,
+  "weights_file": "model.pt",
+  "weights_sha256": "783b6ad9c585a8fa836e88b9a1683c7f059e0715f9da23e4c3595849f9f3f3ba",
+  "trained_at": "2026-10-07T07:57:51.140423+00:00",
+  "training": {
+    "epochs_run": 37,
+    "best_epoch": 29,
+    "batch_size": 32,
+    "optimizer": "AdamW lr=0.001 wd=0.0001",
+    "schedule": "1-epoch linear warm-up, cosine decay",
+    "label_smoothing": 0.05,
+    "augmentation": "D4 dihedral group (8 flips/rotations), applied identically to each cover/stego group",
+    "early_stopping": "val macro-F1, patience 8",
+    "duration_s": 4924.0,
+    "device": "cuda"
+  },
+  "dataset": {
+    "path": "data/dataset",
+    "sources": {
+      "train": 3998,
+      "val": 857,
+      "test": 851
+    },
+    "images": {
+      "train": 38704,
+      "val": 8296,
+      "test": 8248
+    },
+    "leakage_check": {
+      "source_overlap": {
+        "train&val": 0,
+        "train&test": 0,
+        "val&test": 0
+      },
+      "passed": true
+    },
+    "created_at": "2026-10-07T02:57:21.884680+00:00"
+  },
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "torch": "2.11.0+cu128",
+    "cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "sklearn": "1.9.1"
+  },
+  "artifacts": [
+    "metrics.json",
+    "val_metrics.json",
+    "history.json",
+    "confusion_matrix.png",
+    "roc_curve.png",
+    "training_curves.png"
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "created_at": "2026-10-07T02:57:21.884680+00:00",
+  "seed": 42,
+  "tile": 256,
+  "labels": [
+    "normal",
+    "lsb",
+    "dct",
+    "dwt"
+  ],
+  "split_fractions": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "utilisation_range": [
+    0.1,
+    1.0
+  ],
+  "sources": {
+    "train": 3998,
+    "val": 857,
+    "test": 851
+  },
+  "source_datasets": {
+    "div2k": 800,
+    "coco": 4906
+  },
+  "images": {
+    "train": 38704,
+    "val": 8296,
+    "test": 8248
+  },
+  "images_per_class": {
+    "train": {
+      "normal": 9676,
+      "lsb": 9676,
+      "dct": 9676,
+      "dwt": 9676
+    },
+    "val": {
+      "normal": 2074,
+      "lsb": 2074,
+      "dct": 2074,
+      "dwt": 2074
+    },
+    "test": {
+      "normal": 2062,
+      "lsb": 2062,
+      "dct": 2062,
+      "dwt": 2062
+    }
+  },
+  "leakage_check": {
+    "source_overlap": {
+      "train&val": 0,
+      "train&test": 0,
+      "val&test": 0
+    },
+    "passed": true
+  },
+  "embedding_quality": {
+    "lsb": {
+      "psnr": {
+        "mean": 54.371342747660705,
+        "std": 2.5490179320205217,
+        "min": 51.12769395824672,
+        "max": 61.17988843661455
+      },
+      "ssim": {
+        "mean": 0.9982079974780418,
+        "std": 0.0013016588179452595,
+        "min": 0.9759007487120871,
+        "max": 0.9999742434292301
+      },
+      "utilisation": {
+        "mean": 0.5500277129132164,
+        "std": 0.2597200852522512,
+        "min": 0.10002644856770833,
+        "max": 0.999755859375
+      }
+    },
+    "dct": {
+      "psnr": {
+        "mean": 45.06401764052188,
+        "std": 2.008535154757131,
+        "min": 41.0999041442918,
+        "max": 52.04602469528902
+      },
+      "ssim": {
+        "mean": 0.9858703999253847,
+        "std": 0.009956177905491232,
+        "min": 0.8701513399301434,
+        "max": 0.9995088136796993
+      },
+      "utilisation": {
+        "mean": 0.5610046236965475,
+        "std": 0.23409528302755633,
+        "min": 0.103125,
+        "max": 0.999609375
+      }
+    },
+    "dwt": {
+      "psnr": {
+        "mean": 43.40699739868519,
+        "std": 0.9992686498894622,
+        "min": 40.677927650247256,
+        "max": 50.40686593587858
+      },
+      "ssim": {
+        "mean": 0.9855543203828425,
+        "std": 0.008530962514924524,
+        "min": 0.7888509099820215,
+        "max": 0.9995294164439644
+      },
+      "utilisation": {
+        "mean": 0.736103580660708,
+        "std": 0.11945835957097414,
+        "min": 0.17578125,
+        "max": 0.9990234375
+      }
+    }
+  },
+  "algorithms": {
+    "lsb": {
+      "name": "lsb",
+      "label": "LSB replacement (spatial, RGB)",
+      "domain": "spatial",
+      "ecc_parity": 0
+    },
+    "dct": {
+      "name": "dct",
+      "label": "Block-DCT QIM (8\u00d78 luma, mid-frequency)",
+      "domain": "frequency (DCT)",
+      "ecc_parity": 32,
+      "block": 8,
+      "coefficients": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "qim_delta": 24.0
+    },
+    "dwt": {
+      "name": "dwt",
+      "label": "Haar DWT QIM (coarse LH/HL luma subbands)",
+      "domain": "wavelet (DWT)",
+      "ecc_parity": 32,
+      "wavelet": "haar",
+      "level": 3,
+      "subbands": [
+        "LH3 (cH3)",
+        "HL3 (cV3)"
+      ],
+      "qim_delta": 40.0
+    }
+  },
+  "processed_covers": true,
+  "processing_ops": [
+    "noise",
+    "jpeg",
+    "blur",
+    "resample",
+    "jpeg_noise"
+  ],
+  "carrier_variants": {
+    "native512": 800,
+    "processed:blur": 1129,
+    "processed:noise": 1177,
+    "processed:jpeg_noise": 1111,
+    "processed:resample": 1134,
+    "processed:jpeg": 1155,
+    "downscaled": 2465,
+    "native_jpeg_grid": 2441
+  },
+  "skipped_sources": 0,
+  "skipped_examples": [],
+  "duration_s": 215.2
+}
