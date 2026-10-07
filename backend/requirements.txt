@@ -1,0 +1,34 @@
+# --- Web / API ---
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2.8
+pydantic-settings>=2.4
+python-multipart>=0.0.9
+email-validator>=2.2
+
+# --- Database ---
+sqlalchemy>=2.0.32
+alembic>=1.13
+psycopg[binary]>=3.2
+
+# --- Security / cryptography ---
+cryptography>=43.0
+argon2-cffi>=23.1
+PyJWT>=2.9
+
+# --- Image processing / signal processing ---
+numpy>=1.26
+opencv-python-headless>=4.10
+pillow>=10.4
+scipy>=1.13
+PyWavelets>=1.6
+reedsolo>=1.7
+
+# --- Machine learning ---
+# torch / torchvision are installed separately so the correct CUDA build can be chosen:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+scikit-learn>=1.5
+joblib>=1.4
+
+# --- Reporting ---
+reportlab>=4.2
