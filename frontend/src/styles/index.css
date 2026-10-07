@@ -1,0 +1,177 @@
+@import 'tailwindcss';
+
+/*
+ * StegoLab design tokens.
+ * Dark-first forensic-lab palette. Chart/status colours were validated with the
+ * dataviz palette validator against --color-surface-2 (#111317):
+ *   techniques  LSB #3987e5 · DCT #d55181 · DWT #c98500  (all-pairs CVD ΔE ≥ 13.2, normal ΔE ≥ 19.3)
+ *   status      good #0ca30c · warning #fab219 · serious #ec835a · critical #d03b3b (always icon + label)
+ * The brand accent (scan cyan) is reserved for interaction and brand moments, never chart series.
+ */
+@theme {
+  --color-bg: #08090b;
+  --color-surface: #0d0f12;
+  --color-surface-2: #111317;
+  --color-raised: #171a1f;
+  --color-line: #20242a;
+  --color-line-strong: #2e333b;
+
+  --color-ink: #ece7df;
+  --color-ink-2: #b5afa5;
+  --color-ink-3: #8f8a81;
+  --color-ink-4: #5a5751;
+
+  --color-accent: #5ce1e6;
+  --color-accent-ink: #062224;
+
+  --color-ok: #0ca30c;
+  --color-ok-ink: #5fd35f;
+  --color-warn: #fab219;
+  --color-serious: #ec835a;
+  --color-critical: #d03b3b;
+  --color-critical-ink: #f08a8a;
+
+  --color-normal: #8a8780;
+  --color-lsb: #3987e5;
+  --color-dct: #d55181;
+  --color-dwt: #c98500;
+
+  --font-display: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
+  --font-sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+
+  --animate-scan: scan 2.4s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  --animate-blink: blink 1s steps(2, start) infinite;
+  --animate-pulse-soft: pulse-soft 2.4s ease-in-out infinite;
+
+  @keyframes scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+  @keyframes blink {
+    to { visibility: hidden; }
+  }
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 0.45; }
+    50% { opacity: 1; }
+  }
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--color-bg);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-accent) 35%, transparent);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* --- reusable primitives ------------------------------------------------ */
+
+@layer components {
+  .label-mono {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-3);
+  }
+
+  .hairline {
+    border: 1px solid var(--color-line);
+  }
+
+  /* Corner brackets: the signature "evidence frame" motif. */
+  .bracket {
+    position: relative;
+  }
+  .bracket::before,
+  .bracket::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    border-color: var(--color-ink-3);
+    border-style: solid;
+  }
+  .bracket::before {
+    top: -1px;
+    left: -1px;
+    border-width: 1px 0 0 1px;
+  }
+  .bracket::after {
+    bottom: -1px;
+    right: -1px;
+    border-width: 0 1px 1px 0;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, color-mix(in oklab, var(--color-line) 55%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--color-line) 55%, transparent) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .checker {
+    background-color: #1a1d22;
+    background-image:
+      linear-gradient(45deg, #121418 25%, transparent 25%),
+      linear-gradient(-45deg, #121418 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #121418 75%),
+      linear-gradient(-45deg, transparent 75%, #121418 75%);
+    background-size: 16px 16px;
+    background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+  }
+
+  .pixelated {
+    image-rendering: pixelated;
+  }
+}
+
+/* Range input styling (Attack Lab sliders) */
+input[type='range'] {
+  accent-color: var(--color-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
